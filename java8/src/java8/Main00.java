@@ -1,9 +1,5 @@
 package java8;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class Main00 {
   public static void main(String[] args) {
     // Theme:
@@ -13,51 +9,25 @@ public class Main00 {
     // Default methods
     // Lambdas
     // Streams
-    // Timeline
+    // Release Timeline
     
-    System.out.println("asdf");
-
-    List<String> l = Arrays.asList("a", "b", "c");
-    l.forEach(e -> System.out.println(e));
+    // Notes:
+    // Ubuntu install:
+    // http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
+    //
+    // Eclipse install:
+    // http://wiki.eclipse.org/JDT/Eclipse_Java_8_Support_(BETA)
+    // Update site: http://dist.springsource.com/snapshot/TOOLS/java8/e43
     
-//    default void forEach(Consumer<? super T> action) {
-//      Objects.requireNonNull(action);
-//      for (T t : this) {
-//          action.accept(t);
-//      }
-//   }
-
-    System.out.println(l.stream().collect(Collectors.joining(",")));
-    System.out.println(l.stream().collect(Collectors.joining(",", "[", "]")));
+    // Complaints:
+    // List.map, List.filter don't exist, require stream()
+    // Stream should be an Iterable (Seq)
+    // http://openjdk.5641.n7.nabble.com/Why-is-Stream-lt-T-gt-not-an-Iterable-lt-T-gt-td124634.html
     
-    // use ClickListener example
-    
+    // Links:
     // https://blog.codecentric.de/en/2013/10/java-8-first-steps-lambdas-streams/
-    //  A Stream does not store any elements. It is not a data structure. It just operates on the underlying data structure without modifying it. 
-
-    List<String> ll = l.stream().map(e -> e.toString() + e.toString()).collect(Collectors.toList());
-    ll.forEach(e -> System.out.println(e));
-    
     // http://zeroturnaround.com/rebellabs/java-8-explained-applying-lambdas-to-java-collections/
-    
     // [concurrency-interest] ConcurrentHashMapV8 now supports  Spliterator
     // http://cs.oswego.edu/pipermail/concurrency-interest/2012-July/009552.html
-
-    //    int sum = widgets.stream()
-    //      .filter(w -> w.getColor() == RED)
-    //      .mapToInt(w -> w.getWeight())
-    //      .sum();
-
-    // summing, e.g.
-    // l.stream().mapToInt(e -> e.length()).collect(Collectors.of(() -> 0, (x, y) -> x + y, (x, y) -> x + y));
-
-    // StringBuilder appending, 
-    // Collectors.of(StringBuilder::new, StringBuilder::append, StringBuilder::append, StringBuilder::toString);
-
-    // show things in Scala
-    
-    // no semi-colons
-    
-    // similar to Spark
   }
 }

@@ -12,19 +12,25 @@ public class Main02 {
     void sayHi();
 
     default void sayBye() {
-      System.out.println("hi");
+      System.out.println("bye");
     }
   }
 
   public interface Zaz {
-    // default void sayBye() {
-    // }
+    default void sayBye() {
+      System.out.println("bye!");
+    }
   }
 
   public static class FooImpl implements Foo, Zaz {
     @Override
     public void sayHi() {
       System.out.println("hi");
+    }
+
+    @Override
+    public void sayBye() {
+      Zaz.super.sayBye();
     }
   }
 }

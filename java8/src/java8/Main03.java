@@ -1,5 +1,7 @@
 package java8;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +18,9 @@ public class Main03 {
     }
     System.out.println(lengths);
 
+    List<Integer> lengths2 = list.stream().map(e -> e.length()).collect(toList());
+    System.out.println(lengths2);
+
     List<Integer> bigLengths = new ArrayList<>();
     for (String e : list) {
       if (e.length() > 1) {
@@ -23,6 +28,12 @@ public class Main03 {
       }
     }
     System.out.println(bigLengths);
+
+    List<Integer> bigLengths2 = list.stream()//
+      .filter(e -> e.length() > 1)
+      .map(e -> e.length())
+      .collect(toList());
+    System.out.println(bigLengths2);
   }
 
 }
